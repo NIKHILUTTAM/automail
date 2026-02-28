@@ -1,6 +1,3 @@
-Here is the complete, combined Markdown code block. I have stripped out the conversational text and merged the badges from the image right into the top, so you can easily copy and paste the entire thing into your `README.md` file in one go.
-
-```markdown
 # 🚀 AutoMail AI: Resilient B2B Cold Email Automation
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
@@ -117,8 +114,3 @@ python mail.py
 3. **Send:** If the generation is successful (and `DRY_RUN` is False), it connects to the SMTP server and dispatches the email.
 4. **Cooldown:** It implements a 35-second cooldown between emails to maintain a natural human-like sending cadence and protect your sender reputation from spam filters.
 
-```
-
-Would you like me to help you draft a `requirements.txt` file or an open-source License (like MIT) to complete the repository setup?
-
-```
