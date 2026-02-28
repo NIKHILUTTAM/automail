@@ -30,3 +30,79 @@ Open your terminal and clone this repository:
 ```bash
 git clone [https://github.com/NIKHILUTTAM/automail.git](https://github.com/NIKHILUTTAM/automail.git)
 cd automail
+
+### 2. Install Dependencies
+Ensure you have Python installed. Then, install the required libraries:
+```bash
+pip install pandas requests openpyxl xlrd
+
+3. Get Google GenAI API Keys
+You need API keys to power the email generation.
+
+Go to Google AI Studio.
+
+Create 2 to 4 different API keys (Using multiple keys is highly recommended to prevent rate limiting).
+
+Keep these keys handy for the configuration step.
+
+4. Create a Gmail App Password
+Standard Google passwords will not work due to Two-Factor Authentication (2FA).
+
+Go to your Google Account Security settings.
+
+Ensure 2-Step Verification is enabled.
+
+Search for App Passwords in the search bar.
+
+Create a new App Password (e.g., name it "AutoMail").
+
+Copy the generated 16-character password.
+
+5. Configure the Script
+Open mail.py and locate the CONFIGURATION section at the top. Update it with your credentials and preferences:
+
+Python
+# ================= CONFIGURATION =================
+# 1. API KEYS
+API_KEYS = [
+    "YOUR_FIRST_API_KEY_HERE",
+    "YOUR_SECOND_API_KEY_HERE"
+]
+
+# 3. EMAIL CREDENTIALS
+SENDER_EMAIL = "your.email@gmail.com"
+SENDER_PASSWORD = "your-16-digit-app-password" 
+
+# 4. FILE SETTINGS
+CSV_FILE_PATH = "your_client_data.xlsx" 
+
+# 5. RESUME ROW
+START_FROM_ROW = 1 # Update this if the script stops and you need to resume
+
+DRY_RUN = True # Set to False when you are ready to actually send emails
+# =================================================
+6. Format Your Client Data
+Ensure your Excel or CSV file contains the correct column headers. By default, the script looks for:
+
+NAME OF BROKERS (Mapped to the client's Name)
+
+EMAIL ADDRESS (Mapped to the client's Email)
+
+BUSINESS NAME (Mapped to the client's Company)
+
+If your dataset uses different headers, simply update the df.rename() function inside the main() block of the code.
+
+🚀 Usage
+Once configured, run the script from your terminal:
+
+Bash
+python mail.py
+Execution Flow:
+
+The script loads your dataset and jumps to the START_FROM_ROW.
+
+It drafts a custom email using the active AI model and API key.
+
+If successful, it connects to the SMTP server and sends the email.
+
+It implements a 35-second cooldown between emails to maintain a natural sending cadence and avoid spam filters.
