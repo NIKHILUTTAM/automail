@@ -10,10 +10,10 @@ from email.mime.multipart import MIMEMultipart
 # ================= CONFIGURATION =================
 # 1. API KEYS
 API_KEYS = [
-    "key0",
-    "key1",
-    "key2",
-    "key3"
+    "YOUR_FIRST_API_KEY_HERE",
+    "YOUR_SECOND_API_KEY_HERE",
+    "key3",
+    "key4.."
 ]
 
 # 2. MODELS - REORDERED FOR RELIABILITY
@@ -28,14 +28,14 @@ MODELS = [
 CURRENT_KEY_INDEX = 0
 
 # 3. EMAIL CREDENTIALS
-SENDER_EMAIL = "mail@gmail.com"
-SENDER_PASSWORD = "16-digit password" 
+SENDER_EMAIL = "your.email@gmail.com"
+SENDER_PASSWORD = "your-16-digit-app-password" 
 
 # 4. FILE SETTINGS
-CSV_FILE_PATH = "list of clients.xls" 
+CSV_FILE_PATH = "your_client_data.xlsx" 
 
-# 5. RESUME FROM ROW 92 (Sunil Goher)
-START_FROM_ROW = 127
+# 5. RESUME FROM ROW 2
+START_FROM_ROW = 1
 
 DRY_RUN = False
 # =================================================
@@ -203,4 +203,5 @@ def main():
         print(f"❌ Error: {e}")
 
 if __name__ == "__main__":
+
     main()
